@@ -86,13 +86,23 @@
 
   /* services */
   .sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
-  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .services{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(270px,300px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 2px 22px;scrollbar-width:thin;scrollbar-color:var(--red) var(--panel)}
+  .services::-webkit-scrollbar{height:8px}
+  .services::-webkit-scrollbar-track{background:var(--panel);border-radius:99px}
+  .services::-webkit-scrollbar-thumb{background:var(--red);border-radius:99px}
+  .services .svc{scroll-snap-align:start}
+  .scroll-ctrl{display:flex;align-items:center;gap:10px}
+  .scroll-ctrl button{width:48px;height:48px;border-radius:50%;border:1px solid #3A3A42;background:var(--coal);color:var(--white);cursor:pointer;display:grid;place-items:center;transition:background .15s,border-color .15s}
+  .scroll-ctrl button:hover{background:var(--red);border-color:var(--red)}
+  .scroll-ctrl button:disabled{opacity:.35;cursor:default;background:var(--coal);border-color:#3A3A42}
+  .scroll-ctrl svg{width:20px;height:20px}
+  .scroll-ctrl .count{font:800 14px "Exo 2";color:var(--muted);letter-spacing:.1em;margin-right:6px}
   .svc{background:var(--coal);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
   .svc:hover{border-color:var(--red);transform:translateY(-4px)}
   .svc .num{position:absolute;right:18px;top:12px;font:900 italic 54px "Exo 2";color:rgba(255,255,255,.04)}
   .svc .ic{width:48px;height:48px;border-radius:10px;background:rgba(200,16,46,.14);color:var(--red);display:grid;place-items:center;margin-bottom:18px}
   .svc .ic svg{width:26px;height:26px}
-  .svc h3{font-style:italic;font-weight:800;font-size:22px;text-transform:uppercase;margin-bottom:8px}
+  .svc h3{font-style:italic;font-weight:800;font-size:19px;line-height:1.2;text-transform:uppercase;margin-bottom:10px}
   .svc p{color:var(--muted);font-size:15px}
   .svc ul{list-style:none;display:grid;gap:9px;margin-top:4px}
   .svc li{display:flex;gap:10px;align-items:flex-start;color:#D6D6DC;font-size:15px;line-height:1.4}
@@ -101,8 +111,8 @@
   .svc.ask:hover{border-color:#fff}
   .svc.ask p{color:rgba(255,255,255,.9)}
   .svc.ask .btn{background:#fff;color:var(--black);align-self:flex-start}
-  @media (max-width:900px){.services{grid-template-columns:1fr 1fr}}
-  @media (max-width:560px){.services{grid-template-columns:1fr}}
+  .svc.ask{min-height:100%}
+  @media (max-width:560px){.services{grid-auto-columns:82%}.scroll-ctrl .count{display:none}}
 
   /* featured job */
   .feature{background:linear-gradient(180deg,var(--coal),var(--black))}
@@ -237,24 +247,46 @@
     <div class="wrap">
       <div class="sec-head">
         <div><div class="kicker">What we do</div><h2>Services</h2></div>
-        <p class="lead">From a quick oil change to a full engine overhaul, one shop for your whole car.</p>
+        <div>
+          <p class="lead" style="margin-bottom:18px">From a quick oil change to a full engine overhaul, one shop for your whole car. Scroll to see all 15 services →</p>
+          <div class="scroll-ctrl">
+            <span class="count">15 SERVICES</span>
+            <button type="button" id="svcPrev" aria-label="Previous services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" id="svcNext" aria-label="Next services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
       </div>
-      <div class="services">
-        <div class="svc"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
-          <h3>Maintenance</h3>
-          <ul><li>Preventive Maintenance (PMS)</li><li>Engine Oil Change</li><li>ATF Fluid Change</li><li>Aircon General Cleaning &amp; Repair</li></ul></div>
-        <div class="svc"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></div>
-          <h3>Engine &amp; Transmission</h3>
-          <ul><li>EGR &amp; Turbo Ultrasonic Cleaning</li><li>Engine Overhaul</li><li>Transmission Repair</li></ul></div>
-        <div class="svc"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></div>
-          <h3>Wheels &amp; Underchassis</h3>
-          <ul><li>Computerized 3D Wheel Alignment</li><li>Wheel Balancing</li><li>Underchassis Repair</li><li>Brake &amp; Clutch Repair</li></ul></div>
-        <div class="svc"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
-          <h3>Electrical &amp; Diagnostics</h3>
-          <ul><li>OBD Scanning</li><li>Electrical, Electronics &amp; Programming</li><li>Immobilizer Key Duplication</li></ul></div>
-        <div class="svc"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div>
-          <h3>Body &amp; Paint</h3>
-          <ul><li>Car Painting &amp; Repair</li></ul></div>
+      <div class="services" id="svcList">
+        <div class="svc"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Preventive Maintenance (PMS)</h3><p>Mileage-based check-ups: fluids, filters, belts and a full inspection to catch problems early.</p></div>
+        <div class="svc"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+          <h3>Engine Oil Change</h3><p>Fresh oil and a new filter to protect your engine and keep it running smooth.</p></div>
+        <div class="svc"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></div>
+          <h3>EGR &amp; Turbo Ultrasonic Cleaning</h3><p>Ultrasonic cleaning removes carbon and oil buildup to bring back power and cut black smoke.</p></div>
+        <div class="svc"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></div>
+          <h3>Computerized 3D Wheel Alignment</h3><p>Computer-measured alignment so your car drives straight and your tires wear evenly.</p></div>
+        <div class="svc"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 7h14M5 7l-3 6h6zM19 7l-3 6h6z"/></svg></div>
+          <h3>Wheel Balancing</h3><p>Stops steering-wheel shake at speed and helps your tires last longer.</p></div>
+        <div class="svc"><span class="num">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9 15h6"/></svg></div>
+          <h3>ATF Fluid Change</h3><p>Fresh automatic transmission fluid for smoother shifting and a longer-lasting transmission.</p></div>
+        <div class="svc"><span class="num">07</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M19 5l-3 3"/></svg></div>
+          <h3>Brake &amp; Clutch Repair</h3><p>Pads, discs and clutch work so you can stop safely and shift smoothly.</p></div>
+        <div class="svc"><span class="num">08</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7V4M12 7V4M17 7V4M7 17v3M12 17v3M17 17v3"/></svg></div>
+          <h3>Engine Overhaul</h3><p>Full engine teardown and rebuild for low power, heavy smoke or high oil consumption.</p></div>
+        <div class="svc"><span class="num">09</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/><circle cx="12" cy="12" r="7"/></svg></div>
+          <h3>Transmission Repair</h3><p>Diagnosis and repair for slipping, hard-shifting or noisy transmissions.</p></div>
+        <div class="svc"><span class="num">10</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-5h14l2 5v4H3z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+          <h3>Underchassis</h3><p>Suspension, steering and underbody repair for a quieter, more stable ride.</p></div>
+        <div class="svc"><span class="num">11</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>Electrical, Electronics &amp; Programming</h3><p>Wiring, sensors, lights and module programming, from simple faults to complex electronics.</p></div>
+        <div class="svc"><span class="num">12</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/></svg></div>
+          <h3>Aircon General Cleaning &amp; Repair</h3><p>Full aircon cleaning and repair for cold, fresh air even in Davao heat.</p></div>
+        <div class="svc"><span class="num">13</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div>
+          <h3>Car Painting &amp; Repair</h3><p>Scratch, dent and body repair with paint matched to your car.</p></div>
+        <div class="svc"><span class="num">14</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/></svg></div>
+          <h3>Immobilizer Key Duplication</h3><p>Spare or replacement keys with immobilizer chips programmed to your car.</p></div>
+        <div class="svc"><span class="num">15</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div>
+          <h3>OBD Scanning</h3><p>Computer scan to read error codes and find out why your check engine light is on.</p></div>
         <div class="svc ask"><div><h3>Not sure what's wrong?</h3><p>Tell us your car model and what you're noticing. We'll check it and give you a quote.</p></div>
           <a class="btn" href="https://m.me/61584140202829" target="_blank" rel="noopener">Ask for a quote</a></div>
       </div>
@@ -402,6 +434,19 @@
   lb.addEventListener("click", e => { if(e.target === lb || e.target.id === "lbClose") close(); });
   document.addEventListener("keydown", e => { if(e.key === "Escape") close(); });
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // services carousel arrows
+  const list = document.getElementById("svcList"), prev = document.getElementById("svcPrev"), next = document.getElementById("svcNext");
+  const step = () => (list.querySelector(".svc")?.getBoundingClientRect().width || 300) + 18;
+  prev.addEventListener("click", () => list.scrollBy({left: -step() * 2}));
+  next.addEventListener("click", () => list.scrollBy({left: step() * 2}));
+  const sync = () => {
+    prev.disabled = list.scrollLeft <= 2;
+    next.disabled = list.scrollLeft + list.clientWidth >= list.scrollWidth - 2;
+  };
+  list.addEventListener("scroll", sync, {passive: true});
+  window.addEventListener("resize", sync);
+  sync();
 </script>
 </body>
 </html>
