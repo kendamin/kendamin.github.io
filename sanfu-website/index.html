@@ -6,7 +6,7 @@
 <!-- Concept preview: keep out of Google until SANFU approves. Remove this line when it becomes their official site. -->
 <meta name="robots" content="noindex, nofollow">
 <title>SANFU 三福 — Auto Repair Shop in Davao City</title>
-<meta name="description" content="SANFU Autoshop Repair and Services, Davao City. EGR & turbo cleaning, intake manifold and throttle body cleaning, diagnostics and general repair. Affordable price, fast repair, excellent service.">
+<meta name="description" content="SANFU Autoshop Repair and Services, Davao City. PMS and oil change, EGR & turbo ultrasonic cleaning, computerized 3D wheel alignment, brake and clutch, engine overhaul, transmission, aircon, electrical, painting, immobilizer keys and OBD scanning. Affordable price, fast repair, excellent service.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,800;1,800;1,900&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
@@ -94,6 +94,13 @@
   .svc .ic svg{width:26px;height:26px}
   .svc h3{font-style:italic;font-weight:800;font-size:22px;text-transform:uppercase;margin-bottom:8px}
   .svc p{color:var(--muted);font-size:15px}
+  .svc ul{list-style:none;display:grid;gap:9px;margin-top:4px}
+  .svc li{display:flex;gap:10px;align-items:flex-start;color:#D6D6DC;font-size:15px;line-height:1.4}
+  .svc li::before{content:"";flex:0 0 8px;height:8px;margin-top:6px;background:var(--red);transform:skewX(-20deg)}
+  .svc.ask{background:var(--red);border-color:var(--red);display:flex;flex-direction:column;justify-content:space-between;gap:18px;background-image:radial-gradient(360px 260px at 100% 0,rgba(255,255,255,.18),transparent)}
+  .svc.ask:hover{border-color:#fff}
+  .svc.ask p{color:rgba(255,255,255,.9)}
+  .svc.ask .btn{background:#fff;color:var(--black);align-self:flex-start}
   @media (max-width:900px){.services{grid-template-columns:1fr 1fr}}
   @media (max-width:560px){.services{grid-template-columns:1fr}}
 
@@ -219,7 +226,7 @@
   <div class="strip">
     <div class="wrap">
       <div><small>Location</small><strong>Obrero, Davao City</strong></div>
-      <div><small>Landmark</small><strong>Front of Sacred Heart Church</strong></div>
+      <div><small>Landmark</small><strong>Front of Sacred Heart Parish</strong></div>
       <div><small>Opens</small><strong>8:00 AM</strong></div>
       <div><small>Call / Text</small><strong>0927 581 1222</strong></div>
     </div>
@@ -230,21 +237,26 @@
     <div class="wrap">
       <div class="sec-head">
         <div><div class="kicker">What we do</div><h2>Services</h2></div>
-        <p class="lead">Every job is documented with before and after photos, so you see exactly what was done to your car.</p>
+        <p class="lead">From a quick oil change to a full engine overhaul, one shop for your whole car.</p>
       </div>
       <div class="services">
-        <div class="svc"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></div>
-          <h3>Turbo Cleaning</h3><p>Carbon and oil buildup removed from the turbo housing and wheel to restore boost and pulling power.</p></div>
-        <div class="svc"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h4l2-5 4 10 2-5h4"/></svg></div>
-          <h3>EGR Cleaning</h3><p>A clogged EGR valve and cooler cause rough idle, black smoke and power loss. We clean them back to spec.</p></div>
-        <div class="svc"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7V4M12 7V4M17 7V4M7 17v3M12 17v3M17 17v3"/></svg></div>
-          <h3>Intake Manifold</h3><p>Full intake manifold decarbonizing for better airflow, smoother running and cleaner combustion.</p></div>
-        <div class="svc"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M8 16 16 8"/></svg></div>
-          <h3>Throttle Body</h3><p>Throttle body cleaning to fix sticky pedal response, unstable idle and hesitation.</p></div>
-        <div class="svc"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div>
-          <h3>Diagnostics</h3><p>Check engine light on? We find the root cause before replacing anything, so you only pay for what's needed.</p></div>
-        <div class="svc"><span class="num">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
-          <h3>General Repair</h3><p>Maintenance and repair for SUVs, pickups and cars, both gas and diesel. Ask us about your vehicle.</p></div>
+        <div class="svc"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div>
+          <h3>Maintenance</h3>
+          <ul><li>Preventive Maintenance (PMS)</li><li>Engine Oil Change</li><li>ATF Fluid Change</li><li>Aircon General Cleaning &amp; Repair</li></ul></div>
+        <div class="svc"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></div>
+          <h3>Engine &amp; Transmission</h3>
+          <ul><li>EGR &amp; Turbo Ultrasonic Cleaning</li><li>Engine Overhaul</li><li>Transmission Repair</li></ul></div>
+        <div class="svc"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></div>
+          <h3>Wheels &amp; Underchassis</h3>
+          <ul><li>Computerized 3D Wheel Alignment</li><li>Wheel Balancing</li><li>Underchassis Repair</li><li>Brake &amp; Clutch Repair</li></ul></div>
+        <div class="svc"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>Electrical &amp; Diagnostics</h3>
+          <ul><li>OBD Scanning</li><li>Electrical, Electronics &amp; Programming</li><li>Immobilizer Key Duplication</li></ul></div>
+        <div class="svc"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div>
+          <h3>Body &amp; Paint</h3>
+          <ul><li>Car Painting &amp; Repair</li></ul></div>
+        <div class="svc ask"><div><h3>Not sure what's wrong?</h3><p>Tell us your car model and what you're noticing. We'll check it and give you a quote.</p></div>
+          <a class="btn" href="https://m.me/61584140202829" target="_blank" rel="noopener">Ask for a quote</a></div>
       </div>
     </div>
   </section>
@@ -258,7 +270,7 @@
       </div>
       <div>
         <div class="kicker">Recent job</div>
-        <h2>Toyota Fortuner<br>EGR &amp; Turbo Cleaning</h2>
+        <h2>Toyota Fortuner<br>EGR &amp; Turbo Ultrasonic Cleaning</h2>
         <ul class="checks">
           <li>Turbo, EGR valve and intake parts removed and inspected</li>
           <li>Carbon and oil sludge cleaned from every part</li>
@@ -332,9 +344,9 @@
         </div>
         <div class="loc-card">
           <div><small>Address</small><p>65 Nicasio Torres St., Obrero, Davao City, Davao del Sur</p></div>
-          <div><small>Landmark</small><p>In front of Sacred Heart Church</p></div>
+          <div><small>Landmark</small><p>In front of Sacred Heart of Jesus Parish</p></div>
           <div><small>Hours</small><p>Opens 8:00 AM</p></div>
-          <div><small>Contact</small><p><a href="tel:+639275811222">0927 581 1222</a><br><a href="mailto:sanfu.ph@gmail.com">sanfu.ph@gmail.com</a></p></div>
+          <div><small>Contact</small><p><a href="tel:+639275811222">0927 581 1222</a><br><a href="tel:+63822973066">(082) 297 3066</a><br><a href="mailto:sanfu.ph@gmail.com">sanfu.ph@gmail.com</a></p></div>
           <a class="btn btn-red" href="https://www.google.com/maps/dir/?api=1&destination=7.0857281,125.618055" target="_blank" rel="noopener">Get directions</a>
         </div>
       </div>
@@ -352,6 +364,7 @@
         <a class="btn btn-ghost" href="https://m.me/61584140202829" target="_blank" rel="noopener">Message on Facebook</a>
       </div>
       <div class="contact-links">
+        <a href="tel:+63822973066">Landline (082) 297 3066</a>
         <a href="mailto:sanfu.ph@gmail.com">sanfu.ph@gmail.com</a>
         <a href="https://www.facebook.com/profile.php?id=61584140202829" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/sanfu.ph" target="_blank" rel="noopener">Instagram</a>
